@@ -1,0 +1,144 @@
+@import './variables.scss';
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a[routerLink] {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+app-root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &>router-outlet+* {
+        flex: 1;
+        position: relative;
+    }
+
+}
+
+
+.container {
+    margin: auto;
+    height: 100%;
+
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #e5e5f7 10px), repeating-linear-gradient(#444cf755, #444cf7);
+
+}
+
+
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form {
+    display: inline-block;
+    padding: 2rem;
+    border: 1px solid rgb(207, 197, 197);
+    border-radius: 15px;
+    box-shadow: 0px 2px 0 0 rgb(143, 142, 142);
+    background-color: white;
+    min-width: 330px;
+    max-width: 400px;
+
+
+    label {
+        display: inline-block;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .confirm_error {
+        color: red;
+    }
+
+    input {
+        display: block;
+        padding: .5rem 1rem;
+        inline-size: -webkit-fill-available;
+        border-radius: 10px;
+        margin-top: .15rem;
+
+        &:focus-visible {
+            outline: transparent;
+            border: 1px solid $primary-color;
+        }
+
+        &.confirm_error {
+            border-color: red;
+        }
+
+    }
+
+
+
+    button {
+        padding: .6rem 1.2rem;
+        display: block;
+        inline-size: -webkit-fill-available;
+        margin: 0 40px;
+        border: 1px solid whitesmoke;
+        background: $primary-color;
+        color: white;
+        border-radius: 20px;
+
+        &:hover {
+            background-color: rgba($color: $primary-color, $alpha: 0.6);
+        }
+
+        &:active {
+            transform: scale(.97);
+            background-color: $primary-color;
+        }
+
+    }
+
+
+    &:where(&.ng-invalid):is(&.ng-touched):not(&.ng-pristine) {
+        border-color: red;
+    }
+
+    &:where(&.ng-valid):is(&.ng-touched) {
+        border-color: green;
+    }
+
+
+    &_prompt {
+        &-fill {
+            color: red;
+            animation: pulse 1.2s ease-in-out 10ms infinite alternate-reverse;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

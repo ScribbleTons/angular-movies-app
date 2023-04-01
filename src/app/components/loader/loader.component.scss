@@ -1,0 +1,21 @@
+.loader {
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(238, 235, 235);
+    border-top-color: rgb(82, 102, 255);
+    border-radius: 100%;
+    aspect-ratio: 1;
+    animation: spin 1.1s linear 1ms infinite;
+    margin: auto;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,35 @@
+<section class="container center">
+    <form #signupForm="ngForm" class="form" (ngSubmit)="onSubmit()">
+        <h2>Welcome to the Movie App!</h2>
+        <p>Create an account</p>
+
+        <label for="password">Full Name
+            <input type="text" [(ngModel)]="formData.fullname" placeholder="John Doe" name="full name" required />
+        </label>
+        <label for="email">Email Address
+            <input type="email" [(ngModel)]="formData.email" placeholder="Enter your email" name="email" required />
+        </label>
+        <label for="password">Password
+            <input type="password" [(ngModel)]="formData.password" placeholder="*******" name="password" required />
+        </label>
+        <label for="password">Confirm Password
+            <input #confirm_password [class.confirm_error]="formData.password !== formData.confirm_password && formData.confirm_password"
+                type="password" [(ngModel)]="formData.confirm_password" placeholder="*******" name="confirm_password"
+                required />
+            <small class="confirm_error"
+                *ngIf="formData.password !== formData.confirm_password && formData.confirm_password">Both password must
+                match!</small>
+        </label>
+        <button [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting">Create</span>
+            <app-loader *ngIf="isSubmitting" [size]="25"></app-loader>
+        </button>
+        <p>Already have an account, <a routerLink="/login">log in.</a></p>
+
+        <p *ngIf="
+        signupForm.pristine && signupForm.submitted && signupForm.untouched
+      " class="form_prompt-fill">
+            Kindly fill the form
+        </p>
+    </form>
+</section>

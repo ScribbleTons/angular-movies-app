@@ -1,0 +1,14 @@
+<nav class="nav">
+    <div class="nav-primary">
+        <h2>Movies</h2>
+        <a routerLink="">Home</a>
+        <a routerLink="/feedback">Feedback</a>
+    </div>
+    <div class="nav-secondary">
+        <form #searchForm="ngForm" class="inline-form" (ngSubmit)="onSubmit()">
+            <input [(ngModel)]="search" name="search" placeholder="search">
+            <button class="btn-primary">Search</button>
+        </form>
+        <a routerLink="/login">Log In</a>
+    </div>
+</nav>
